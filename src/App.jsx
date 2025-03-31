@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import About from './About';
 import Resume from './Resume';
 import Project from './Project';
-import Recipe from './recipe/Recipe';
+import Recipe from './Medical/Medical';
 import Quiz from './Quiz/Quiz';
 import DadJoke from './Dadjoke/DadJoke';
 import Todo from './Todo';
@@ -38,7 +38,7 @@ const App = () => {
               <>
                 <Project title="Medical Diagnosis App" color="orange" ProjectComponent={<Recipe />} setSelectedProject={setSelectedProject} />
                 <Project title="Quiz" color="red" ProjectComponent={<Quiz />} setSelectedProject={setSelectedProject} />
-                <Project title="Dad Joke Teller" color="blue" ProjectComponent={<DadJoke />} setSelectedProject={setSelectedProject} />
+                <Project title="Joke Teller" color="blue" ProjectComponent={<DadJoke />} setSelectedProject={setSelectedProject} />
                 <Project title="Bank challan for kids" color="purple" ProjectComponent={<Denominations/>} setSelectedProject={setSelectedProject} />
                 <Project title="To Do List" color="green" ProjectComponent={<Todo />} setSelectedProject={setSelectedProject} />
               </>
