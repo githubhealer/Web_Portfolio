@@ -49,6 +49,11 @@ const App = () => {
         />
       </Routes>
     </Router>
+    <div style={{ textAlign: 'center',marginTop:'40vh', color: 'white', minHeight: '100vh',minWidth:'100vw'}}>
+            <h1 style={{ fontSize: '36px',color:"white" }}>Welcome to My Portfolio</h1>
+            <p style={{ fontSize: '20px', marginTop: '10px' }}>I'm Sandeep Ganesh D, a passionate developer.</p>
+            <p style={{ fontSize: '18px', marginTop: '10px' }}>Explore my projects and skills using the navigation above!</p>
+    </div>
     </>
   );
 };
