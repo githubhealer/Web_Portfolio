@@ -20,13 +20,13 @@ const App = () => {
       <nav>
         <h1 style={{ color: 'aqua' }}>Portfolio</h1>
         <nav className="right">
-          <Link to="/">About</Link>
+          <Link to="/Web_Portfolio">About</Link>
           <Link to="/resume">Resume</Link>
           <Link to="/proj">Project</Link>
         </nav>
       </nav>
       <Routes>
-        <Route path="/" element={<About />} />
+        <Route path="/Web_Portfolio" element={<About />} />
         <Route path="/resume" element={<Resume />} />
         <Route
           path="/proj"
@@ -49,11 +49,6 @@ const App = () => {
         />
       </Routes>
     </Router>
-    <div style={{ textAlign: 'center',marginTop:'40vh', color: 'white', minHeight: '100vh',minWidth:'100vw'}}>
-            <h1 style={{ fontSize: '36px',color:"white" }}>Welcome to My Portfolio</h1>
-            <p style={{ fontSize: '20px', marginTop: '10px' }}>I'm Sandeep Ganesh D, a passionate developer.</p>
-            <p style={{ fontSize: '18px', marginTop: '10px' }}>Explore my projects and skills using the navigation above!</p>
-    </div>
     </>
   );
 };
