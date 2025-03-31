@@ -1,0 +1,19 @@
+div.body{
+    display:flex;
+    width:100vw;
+    color:white;
+    font-size: large;
+    height:100vh;
+    background-color: black;
+}
+div.text{
+    width:80vw;
+    margin-top:20vh;
+    position:relative;
+    animation:bounce 1s ease-in-out;
+    animation-iteration-count: 1;
+}
+@keyframes bounce{
+      0%{top:20px;}
+      100%{top:0px;}
+}

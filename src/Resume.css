@@ -1,0 +1,18 @@
+.bodyres{
+    height:100%;
+    width:100vh;
+}
+.template{
+    background-color: azure;
+    height:100%;
+    width:80vw;
+    margin-top:111px;
+    margin-left: 150px;
+    padding-left:5px
+}
+h2{
+    font-weight: 600;
+}   
+hr{
+    position:relative;
+}
