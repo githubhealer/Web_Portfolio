@@ -1,0 +1,32 @@
+.white {
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    display:flex;
+    overflow:hidden;
+}
+
+.homebody {
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+}
+
+.prev {
+    left: 10px; 
+}
+
+.next {
+    right: 10px;
+}
+

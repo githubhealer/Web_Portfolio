@@ -1,29 +1,23 @@
-nav {
-  background-color: #333;
-  width:100vw;
+nav{
+  min-width:100vw;
+  display:flex;
   position:absolute;
   top:0;
   left:0;
+}
+.navlinks{
   display:flex;
-}
-nav.right{
-  position:relative;
   justify-content: end;
-  margin-top:10px;
 }
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  margin:25px;
-  text-align:right;
-}
-nav.right a:hover {
-  text-decoration: underline;
-  background-color: #f4f4f4;
+.navitem{
+  margin-top:50px;
+  margin-right: 80px;
   padding:10px;
-  }
-h1 {
-  font-size: 36px;
-  color: #222;
+  border-radius:10px 10px 10px 10px;
+}
+.navitem:focus{
+  background-color: azure;
+}
+body{
+  background-color: black;
 }

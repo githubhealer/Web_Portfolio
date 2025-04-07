@@ -16,72 +16,111 @@ const TodoApp = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "10vh" ,marginLeft: "35vw"}}>
-    <div style={{position:"absolute",top:"20vh"}}>
-      <h2>To-Do List</h2>
-      <form onSubmit={addTask} style={{ marginBottom: "20px" }}>
-        <input
-          type="text"
-          placeholder="Add a task..."
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-        />
-        <button
-          type="submit"
-          style={{
-            marginLeft: "10px",
-            backgroundColor: "green",
-            color: "white",
-            fontSize: "16px",
-            border: "none",
-            padding: "5px 10px",
-            cursor: "pointer",
-          }}
-          disabled={tasks.length >= 5}
-        >
-          Add
-        </button>
-      </form>
-      </div>
-      {tasks.length >= 5 && (
-        <h2 style={{ color: "red", fontSize: "14px", marginLeft: "30vw",fontSize:"20px" }}>
-          You can only add up to 5 tasks.
-        </h2>
-      )}
-      <ul style={{ listStyle: "none", padding: 0, marginLeft: "0vw", marginRight: "auto",marginBottom:"-20vh", width: "300px" }}>
-        <h3 style={{position:"absolute",top:"40vh",marginLeft:"8vw"}}>Task List</h3>
-        {tasks.map((t, index) => (
-          <li
-            key={index}
+    <div
+      style={{
+        backgroundColor: "#000",
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontFamily: "Arial, sans-serif",
+        color: "white",
+      }}
+    >
+      <div
+        style={{
+          position:"absolute",
+          top:"20vh",
+          left:"35vw",
+          backgroundColor: "#1e1e1e",
+          padding: "30px",
+          borderRadius: "12px",
+          width: "350px",
+          boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+          textAlign: "center",
+        }}
+      >
+        <h2>To-Do List</h2>
+        <form onSubmit={addTask} style={{ marginBottom: "20px" }}>
+          <input
+            type="text"
+            placeholder="Add a task..."
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              background: "white",
-              color:"black",
-              padding: "10px",
-              marginBottom: "10px",
+              padding: "8px",
+              width: "200px",
               borderRadius: "5px",
-              width: "100%",
+              border: "1px solid #ccc",
             }}
+          />
+          <button
+            type="submit"
+            style={{
+              marginLeft: "10px",
+              backgroundColor: "green",
+              color: "white",
+              fontSize: "16px",
+              border: "none",
+              padding: "8px 12px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            disabled={tasks.length >= 5}
           >
-            <span>{t}</span>
-            <button
+            Add
+          </button>
+        </form>
+
+        {tasks.length >= 5 && (
+          <p style={{ color: "red", fontSize: "14px", marginBottom: "10px" }}>
+            You can only add up to 5 tasks.
+          </p>
+        )}
+
+        <h3 style={{ marginBottom: "10px" }}>Task List</h3>
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            maxHeight: "250px",
+            overflowY: "auto",
+          }}
+        >
+          {tasks.map((t, index) => (
+            <li
+              key={index}
               style={{
-                backgroundColor: "red",
-                color: "white",
-                fontSize: "14px",
-                border: "none",
-                padding: "5px 10px",
-                cursor: "pointer",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                background: "white",
+                color: "black",
+                padding: "10px",
+                marginBottom: "10px",
+                borderRadius: "5px",
               }}
-              onClick={() => deleteTask(index)}
             >
-              Done
-            </button>
-          </li>
-        ))}
-      </ul>
+              <span>{t}</span>
+              <button
+                style={{
+                  backgroundColor: "red",
+                  color: "white",
+                  fontSize: "14px",
+                  border: "none",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+                onClick={() => deleteTask(index)}
+              >
+                Done
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

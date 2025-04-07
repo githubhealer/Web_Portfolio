@@ -1,55 +1,95 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import About from './About';
 import Resume from './Resume';
-import Project from './Project';
-import Recipe from './Medical/Medical';
-import Quiz from './Quiz/Quiz';
+import Recipe from './Medical';
+import Quiz from './Quiz';
 import DadJoke from './Dadjoke/DadJoke';
 import Todo from './Todo';
 import Denominations from './Denominations';
+import Home from './Home';
 import './App.css';
-import './About.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './About.css';
 
 const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <>
-    <Router>
-      <nav>
-        <h1 style={{ color: 'aqua' }}>Portfolio</h1>
-        <nav className="right">
-          <Link to="/Web_Portfolio">About</Link>
-          <Link to="/resume">Resume</Link>
-          <Link to="/proj">Project</Link>
+    <div>
+      <Router>
+        <nav>
+          <h1 style={{ color: 'aqua' }}>
+            PORT<span style={{ color: 'white' }}>FOLIO</span>
+          </h1>
+          <ul type="none" style={{ display: 'flex', marginLeft: '40vw', marginTop: '8vh' }}>
+            <li>
+              <Link to="/Web_Portfolio" className="navitem">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/Project" className="navitem">
+                Project
+              </Link>
+            </li>
+            <li>
+              <Link to="/resume" className="navitem">
+                Resume
+              </Link>
+            </li>
+          </ul>
         </nav>
-      </nav>
-      <Routes>
-        <Route path="/Web_Portfolio" element={<About />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route
-          path="/proj"
-          element={
-            selectedProject ? (
-              <div>
-                <button onClick={() => setSelectedProject(null)} style={{backgroundColor:"white",color:"black",fontSize:"20px",position:"absolute",top:"20vh"}}>Go Back</button>
-                {selectedProject}
-              </div>
-            ) : (
-              <>
-                <Project title="Medical Diagnosis App" color="orange" ProjectComponent={<Recipe />} setSelectedProject={setSelectedProject} />
-                <Project title="Quiz" color="red" ProjectComponent={<Quiz />} setSelectedProject={setSelectedProject} />
-                <Project title="Joke Teller" color="blue" ProjectComponent={<DadJoke />} setSelectedProject={setSelectedProject} />
-                <Project title="Bank challan for kids" color="purple" ProjectComponent={<Denominations/>} setSelectedProject={setSelectedProject} />
-                <Project title="To Do List" color="green" ProjectComponent={<Todo />} setSelectedProject={setSelectedProject} />
-              </>
-            )
-          }
-        />
-      </Routes>
-    </Router>
-    </>
+
+        <Routes>
+          <Route path="/Project" element={<Home setSelectedProject={setSelectedProject} />} />
+          <Route path="/Web_Portfolio" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route
+            path="/proj"
+            element={
+              selectedProject ? (
+                <ProjectView selectedProject={selectedProject} clearProject={() => setSelectedProject(null)} />
+              ) : (
+                <h2 style={{ marginTop: '20vh', textAlign: 'center', color: 'white' }}>
+                  No project selected. Go to "Projects" tab to choose one.
+                </h2>
+              )
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
+
+// Sub-component to handle displaying project with back navigation
+const ProjectView = ({ selectedProject, clearProject }) => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    clearProject();
+    navigate('/Project');
+  };
+
+  return (
+    <div>
+      <button
+        onClick={goBack}
+        style={{
+          backgroundColor: 'white',
+          color: 'black',
+          fontSize: '20px',
+          position: 'absolute',
+          top: '20vh',
+          padding: '10px 20px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+        }}
+      >
+        Go Back
+      </button>
+      <div style={{ marginTop: '25vh' }}>{selectedProject}</div>
+    </div>
   );
 };
 
